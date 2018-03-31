@@ -1,4 +1,4 @@
 # taxi
 Taxi Data Analysis
 
-## Datasets: * Taxi Trips: https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew
+## Datasets: * Taxi Trips: https://dev.socrata.com/foundry/data.cityofchicago.org/wrvz-psew
