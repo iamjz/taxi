@@ -223,10 +223,21 @@ def identicalMeans(dataA, dataB, size):
     # compute the means of Winter and Summer earnings
     empirical_diff_means = diff_of_means(dataA, dataB)
     print("Empirical Difference in Means:", empirical_diff_means)
+    print("")
+    print("H0 = No difference between the 2 distributions")
+    print("H1 = There is a difference between the 2 distributions")
 
     perm_replicates = draw_perm_reps(dataA, dataB, diff_of_means, size = x)
-    pvalue = np.sum(perm_replicates >= empirical_diff_means) / len(perm_replicates)
-
-    print("P-Value:", pvalue)
+    
+    if (empirical_diff_means >= 0):
+        pvalue = np.sum(perm_replicates >= empirical_diff_means) / len(perm_replicates)
+    else:
+        pvalue = np.sum(perm_replicates <= empirical_diff_means) / len(perm_replicates)
+        
+    if (pvalue >= 0.05):
+        print("P-Value:", pvalue, "|", "Fail to reject H0")
+    else:
+        print("P-Value:", pvalue, "|", "Reject H0")
+    
     return
 
